@@ -1,28 +1,31 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import {increment,decrement} from './slice'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addItems } from './slice'
 
-export function Counter() {
-  const count = useSelector((state) => state.counter.value)
-  const dispatch = useDispatch()
+export const Counter = () => {
+//  const cartItems =  useSelector((store) => store.storeItems.addColor)
 
+//  const [addName,setAddName] = useState('white')
+
+//  console.log(cartItems)
+
+//  const dispatch = useDispatch()
+
+//  const handleName = () => {
+//    dispatch(addItems(setAddName(addName === 'white' ? 'Black' :'white')))
+//  }
   return (
-    <div>
-      <div>
-        <button
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
-        >
-          Increment
-        </button>
-        <span>{count}</span>
-        <button
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
-        >
-          Decrement
-        </button>
-      </div>
+    <div style={{
+      width:'100%',
+      height:'100vh',
+      // background:addName
+    }}>
+    {/* Counter App -: {addName} */}
+    <button 
+    // onClick={handleName}
+    >Add Items</button>
+    <button>Remove Items</button>
     </div>
   )
 }
+

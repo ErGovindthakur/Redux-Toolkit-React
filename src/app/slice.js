@@ -1,27 +1,20 @@
-import {createSlice} from '@reduxjs/toolkit' // initialize rtk (createSlice)
+import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-     value : 0 // Setting our initial value
-}
-
-export const counterSlice = createSlice({
-     name:'counter', // creating our slice here
-     initialState,
-
-     reducers:{ // initializing our reducers here
-          // initializing our multiple methods
-          increment : (state) => {
-               state.value += 1
-          },
-          decrement: (state) => {
-               state.value -= 1
-          },
-          incrementByAmount:(state,action) => {
-               state.value += action.payload
-          },
+const appSlice = createSlice({
+     name:'counterSlice',
+     initialState:{
+         addColor : 'black'
      },
+     reducers:{
+          addItems: (state , action) => {
+               state.cartItem = action.payload
+          },
+          removeItems : (state,action) => {
+               state.cartItem.shift(action.payload)
+          }
+     }
 })
 
-export const {increment,decrement,incrementByAmount} = counterSlice.actions
 
-export default counterSlice.reducer
+export const {addItems,removeItems} = appSlice.actions
+export default appSlice.reducer

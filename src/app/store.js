@@ -1,10 +1,10 @@
-import {configureStore} from '@reduxjs/toolkit'
-import counterReducer from './slice'
+import { configureStore } from "@reduxjs/toolkit";
+import appSlice from './slice';
 
-export const store = configureStore(
-     {
-          reducer:{
-               counter:counterReducer
-          }
-     }
-)
+const appStore = configureStore({
+    reducer: {
+        storeItems: appSlice, // This is correct
+    },
+});
+
+export default appStore;
